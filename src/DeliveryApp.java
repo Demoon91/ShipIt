@@ -155,62 +155,61 @@ public class DeliveryApp {
         System.out.println("0 — Завершить");
     }
 
-    private static StandardParcel createStandard(Scanner scanner) {
+    private static StandardParcel createStandard(Scanner standScanner) {
         System.out.println("Введите описание посылки");
-        String description = scanner.nextLine();
+        String description = standScanner.nextLine();
         System.out.println("Введите вес посылки");
-        double weight = Double.parseDouble(scanner.nextLine());
+        double weight = Double.parseDouble(standScanner.nextLine());
         System.out.println("Введите адрес назначения");
-        String destinationAddress = scanner.nextLine();
+        String destinationAddress = standScanner.nextLine();
         System.out.println("Введите день отправки");
-        int deliveryDay = Integer.parseInt(scanner.nextLine());
-
+        int deliveryDay = Integer.parseInt(standScanner.nextLine());
         while (deliveryDay > 30 || deliveryDay < 1) { // исправил < 0 на < 1
             System.out.println("Ошибка: день должен быть от 1 до 30");
             System.out.print("Введите день отправки снова: ");
-            deliveryDay = Integer.parseInt(scanner.nextLine());
+            deliveryDay = Integer.parseInt(standScanner.nextLine());
         }
 
         return new StandardParcel(description, weight, destinationAddress, deliveryDay);
     }
 
-    private static FragileParcel createFragile(Scanner scanner) {
+    private static FragileParcel createFragile(Scanner fragilScanner) {
         System.out.println("Введите описание посылки");
-        String description = scanner.nextLine();
+        String description = fragilScanner.nextLine();
         System.out.println("Введите вес посылки");
-        double weight = Double.parseDouble(scanner.nextLine());
+        double weight = Double.parseDouble(fragilScanner.nextLine());
         System.out.println("Введите адрес назначения");
-        String destinationAddress = scanner.nextLine();
+        String destinationAddress = fragilScanner.nextLine();
         System.out.println("Введите день отправки");
-        int deliveryDay = Integer.parseInt(scanner.nextLine());
+        int deliveryDay = Integer.parseInt(fragilScanner.nextLine());
 
         while (deliveryDay > 30 || deliveryDay < 1) { // исправил < 0 на < 1
             System.out.println("Ошибка: день должен быть от 1 до 30");
             System.out.print("Введите день отправки снова: ");
-            deliveryDay = Integer.parseInt(scanner.nextLine());
+            deliveryDay = Integer.parseInt(fragilScanner.nextLine());
         }
 
         return new FragileParcel(description, weight, destinationAddress, deliveryDay);
     }
 
-    private static PerishableParcel createPerishable(Scanner scanner) {
+    private static PerishableParcel createPerishable(Scanner perishScanner) {
         System.out.println("Введите описание посылки");
-        String description = scanner.nextLine();
+        String description = perishScanner.nextLine();
         System.out.println("Введите вес посылки");
-        double weight = Double.parseDouble(scanner.nextLine());
+        double weight = Double.parseDouble(perishScanner.nextLine());
         System.out.println("Введите адрес назначения");
-        String destinationAddress = scanner.nextLine();
+        String destinationAddress = perishScanner.nextLine();
         System.out.println("Введите день отправки");
-        int deliveryDay = Integer.parseInt(scanner.nextLine());
+        int deliveryDay = Integer.parseInt(perishScanner.nextLine());
 
         while (deliveryDay > 30 || deliveryDay < 1) { // исправил < 0 на < 1
             System.out.println("Ошибка: день должен быть от 1 до 30");
             System.out.print("Введите день отправки снова: ");
-            deliveryDay = Integer.parseInt(scanner.nextLine());
+            deliveryDay = Integer.parseInt(perishScanner.nextLine());
         }
 
         System.out.println("Срок хранения");
-        int saveDay = Integer.parseInt(scanner.nextLine());
+        int saveDay = Integer.parseInt(perishScanner.nextLine());
         return new PerishableParcel (description, weight, destinationAddress, deliveryDay, saveDay);
     }
 
@@ -235,7 +234,7 @@ public class DeliveryApp {
                     System.out.println(fragileParcelParcelBox.getAllParcels());
                     break;
                 case 3:
-                    perishableParcelParcelBox.getAllParcels();
+                    System.out.println(perishableParcelParcelBox.getAllParcels());
                     break;
                 case 0:
                     backMain = true;

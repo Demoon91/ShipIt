@@ -28,7 +28,7 @@ public class ParcelBox<T extends Parcel> {
     }
 
     public List<T> getAllParcels() {
-        return parcels;
+        return new ArrayList<>(parcels);
     }
 
 

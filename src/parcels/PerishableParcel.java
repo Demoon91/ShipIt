@@ -17,19 +17,19 @@ public class PerishableParcel extends Parcel {
         this.timeToLive = timeToLive;
     }
 
+    public  boolean isExpired (int currentDay) {
+        int dayAmount = getSendDay() + timeToLive;
+        return dayAmount < currentDay;
+    }
+
     @Override
     public double calculateDeliveryCost() {
         return getWeight() * PER_PRICE;
     }
 
-    public  boolean isExpired (int currentDay) {
-        int dayAmount = getSendDay() + getTimeToLive();
-        return dayAmount < currentDay;
-    }
-
     @Override
     public String toString() {
-        return "\nСкоропортящаяся  " + super.toString() +
+        return "\nСкоропортящаяся посылка \n" + super.toString() +
                 "\nСрок храненния " + timeToLive;
     }
 }
